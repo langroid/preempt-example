@@ -1,0 +1,10 @@
+[project]
+name = "preempt-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11, <3.12"
+dependencies = [
+    "langroid>=0.52.5",
+    "preempt>=0.1.24",
+]
