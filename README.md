@@ -11,3 +11,9 @@ Run the test
 ```
 uv run tests/test-round-trip.py
 ```
+
+# Run the LLM-chat test using pytest
+
+```bash
+pytest tests/test-llm-chat.py
+```
