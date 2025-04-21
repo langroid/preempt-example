@@ -8,10 +8,17 @@ import langroid.language_models as lm
 from preempt.ner import *
 from preempt.sanitizer import *
 
+import torch
 
+device = (
+    "mps" if torch.backends.mps.is_available() 
+    else "cuda" if torch.cuda.is_available() 
+    else "cpu"
+)
 # Load NER object
 # ner_model = NER("/path/to/UniNER-7B-all", device="cuda:1")
-ner_model = NER("/path/to/Meta-Llama-3-8B-Instruct/", device="cuda:1")
+ner_model = NER("meta-llama/Meta-Llama-3.1-8B-Instruct", device=device)
+
 
 # Load Sanitizer objects for name and money
 sanitizer_name = Sanitizer(ner_model, key = "EF4359D8D580AA4F7F036D6F04FC6A94", tweak = "D8E7920AFA330A73")
